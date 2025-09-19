@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk HTML Form Exploration - Single Page Application</title>
+    <title>Exploração de Formulários HTML Cyberpunk - Aplicação de Página Única</title>
     <style>
         /* Cyberpunk CSS Reset & Base Styles */
         * {
@@ -458,66 +458,87 @@
     <!-- Navigation -->
     <nav class="nav-container">
         <ul class="nav-pills">
-            <li><a href="#home" class="nav-pill">Home</a></li>
+            <li><a href="#home" class="nav-pill">Início</a></li>
             <li><a href="#links" class="nav-pill">Links</a></li>
-            <li><a href="#lists" class="nav-pill">Lists</a></li>
-            <li><a href="#tables" class="nav-pill">Tables</a></li>
-            <li><a href="#forms" class="nav-pill">Forms</a></li>
-            <li><a href="#media" class="nav-pill">Media</a></li>
+            <li><a href="#lists" class="nav-pill">Listas</a></li>
+            <li><a href="#tables" class="nav-pill">Tabelas</a></li>
+            <li><a href="#forms" class="nav-pill">Formulários</a></li>
+            <li><a href="#media" class="nav-pill">Mídia</a></li>
         </ul>
     </nav>
+
+    <!-- Top Video Player - Cyberpunk Shinobi -->
+    <div style="position: relative; width: 100%; margin-top: 80px; padding: 0 20px;">
+        <div style="background: var(--glass-standard); backdrop-filter: blur(20px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 20px; box-shadow: 0 0 50px var(--electric-blue); max-width: 1200px; margin: 0 auto;">
+            <h3 style="color: var(--cyber-green); text-align: center; margin-bottom: 20px; font-size: 1.5rem;">🥷 Portal Cyberpunk Shinobi</h3>
+            <video autoplay muted loop style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 0 30px var(--neon-purple); background: var(--deep-space);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <source src="./Hailuo_Video_A cyberpunk shinobi, wreathed _425441435662598147.mp4" type="video/mp4">
+                <source src="Hailuo_Video_A cyberpunk shinobi, wreathed _425441435662598147.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            <div style="display: none; width: 100%; height: 300px; background: linear-gradient(135deg, var(--deep-space), var(--neon-purple), var(--electric-blue)); border-radius: 15px; box-shadow: 0 0 30px var(--neon-purple); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--electric-blue);">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🥷</div>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 10px;">Cyberpunk Shinobi</h3>
+                    <p style="color: var(--electric-blue); font-size: 0.9rem;">Video Loading...</p>
+                </div>
+                <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 2s infinite;"></div>
+            </div>
+            <p style="color: var(--electric-blue); text-align: center; margin-top: 15px; font-size: 0.9rem;">⚡ Shinobi Neural • 🔄 Loop infinito • 🎭 Experiência imersiva</p>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-container">
         <!-- Home Section -->
         <section id="home" class="content-section">
-            <h1 class="section-title">🚀 CYBERPUNK HTML EXPLORATION 🚀</h1>
+            <h1 class="section-title">🚀 EXPLORAÇÃO HTML CYBERPUNK 🚀</h1>
             <div style="text-align: center; font-size: 1.2rem; line-height: 2;">
-                <p>Welcome to the <span style="color: var(--cyber-green);">ULTIMATE</span> cyberpunk HTML form exploration!</p>
-                <p>Experience the future of web development with <span style="color: var(--plasma-pink);">glassmorphism</span> and <span style="color: var(--electric-blue);">neon aesthetics</span>.</p>
+                <p>Bem-vindo à <span style="color: var(--cyber-green);">DEFINITIVA</span> exploração cyberpunk de formulários HTML!</p>
+                <p>Experimente o futuro do desenvolvimento web com <span style="color: var(--plasma-pink);">glassmorfismo</span> e <span style="color: var(--electric-blue);">estética neon</span>.</p>
                 <br>
-                <button class="cyber-button" onclick="scrollToSection('forms')">START QUEST</button>
+                <button class="cyber-button" onclick="scrollToSection('forms')">INICIAR MISSÃO</button>
             </div>
         </section>
 
         <!-- Links Section -->
         <section id="links" class="content-section">
-            <h2 class="section-title">🔗 Advanced Clickable Links</h2>
+            <h2 class="section-title">🔗 Links Clicavéis Avançados</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 <div style="background: var(--glass-subtle); padding: 20px; border-radius: 15px; border: 1px solid var(--neon-purple);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">📧 Contact Links</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">📧 Links de Contato</h3>
                     <p><a href="mailto:aluno.den@senaibahia.com.br" style="color: var(--electric-blue); text-decoration: none;">✉️ Email: aluno.den@senaibahia.com.br</a></p>
-                    <p><a href="tel:+5571999999999" style="color: var(--electric-blue); text-decoration: none;">📱 Phone: +55 71 99999-9999</a></p>
+                    <p><a href="tel:+5571999999999" style="color: var(--electric-blue); text-decoration: none;">📱 Telefone: +55 71 99999-9999</a></p>
                 </div>
                 <div style="background: var(--glass-subtle); padding: 20px; border-radius: 15px; border: 1px solid var(--electric-blue);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🌐 External Links</h3>
-                    <p><a href="https://github.com" target="_blank" style="color: var(--electric-blue); text-decoration: none;">🚀 GitHub Portal</a></p>
-                    <p><a href="https://codepen.io" target="_blank" style="color: var(--electric-blue); text-decoration: none;">✨ CodePen Lab</a></p>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🌐 Links Externos</h3>
+                    <p><a href="https://github.com" target="_blank" style="color: var(--electric-blue); text-decoration: none;">🚀 Portal GitHub</a></p>
+                    <p><a href="https://codepen.io" target="_blank" style="color: var(--electric-blue); text-decoration: none;">✨ Laboratório CodePen</a></p>
                 </div>
             </div>
         </section>
 
         <!-- Lists Section -->
         <section id="lists" class="content-section">
-            <h2 class="section-title">📋 Cyberpunk Data Structures</h2>
+            <h2 class="section-title">📋 Estruturas de Dados Cyberpunk</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div style="background: var(--glass-subtle); padding: 25px; border-radius: 15px; border: 1px solid var(--cyber-green);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">⚡ Unordered Data Stream</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">⚡ Fluxo de Dados Não Ordenados</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Quantum Computing Basics</li>
-                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Neural Network Architecture</li>
-                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Cybersecurity Protocols</li>
-                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Digital Reality Systems</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Fundamentos da Computação Quântica</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Arquitetura de Redes Neurais</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Protocolos de Segurança Cyber</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Sistemas de Realidade Digital</li>
                     </ul>
                 </div>
                 <div style="background: var(--glass-subtle); padding: 25px; border-radius: 15px; border: 1px solid var(--plasma-pink);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🔢 Ordered Sequence Protocol</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🔢 Protocolo de Sequência Ordenada</h3>
                     <ol style="color: var(--electric-blue); padding-left: 20px;">
-                        <li style="padding: 5px 0;">Initialize Cyberpunk Interface</li>
-                        <li style="padding: 5px 0;">Establish Neural Connection</li>
-                        <li style="padding: 5px 0;">Execute Data Matrix Upload</li>
-                        <li style="padding: 5px 0;">Verify System Integration</li>
-                        <li style="padding: 5px 0;">Deploy Holographic Interface</li>
+                        <li style="padding: 5px 0;">Inicializar Interface Cyberpunk</li>
+                        <li style="padding: 5px 0;">Estabelecer Conexão Neural</li>
+                        <li style="padding: 5px 0;">Executar Upload da Matrix de Dados</li>
+                        <li style="padding: 5px 0;">Verificar Integração do Sistema</li>
+                        <li style="padding: 5px 0;">Implementar Interface Holográfica</li>
                     </ol>
                 </div>
             </div>
@@ -525,33 +546,33 @@
 
         <!-- Tables Section -->
         <section id="tables" class="content-section">
-            <h2 class="section-title">📊 Holographic Data Matrix</h2>
+            <h2 class="section-title">📊 Matrix de Dados Holográfica</h2>
             <div style="overflow-x: auto; background: var(--glass-subtle); border-radius: 15px; padding: 20px;">
                 <table style="width: 100%; border-collapse: collapse; background: var(--glass-standard); backdrop-filter: blur(15px); border-radius: 10px; overflow: hidden;">
                     <thead>
                         <tr style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue));">
-                            <th style="padding: 15px; color: white; text-align: left;">SYSTEM ID</th>
-                            <th style="padding: 15px; color: white; text-align: left;">NEURAL NETWORK</th>
+                            <th style="padding: 15px; color: white; text-align: left;">ID DO SISTEMA</th>
+                            <th style="padding: 15px; color: white; text-align: left;">REDE NEURAL</th>
                             <th style="padding: 15px; color: white; text-align: left;">STATUS</th>
-                            <th style="padding: 15px; color: white; text-align: left;">POWER LEVEL</th>
+                            <th style="padding: 15px; color: white; text-align: left;">NÍVEL DE ENERGIA</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
                             <td style="padding: 12px; color: var(--electric-blue);">CYB-001</td>
-                            <td style="padding: 12px; color: var(--electric-blue);">Quantum Matrix Alpha</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Matrix Quântica Alfa</td>
                             <td style="padding: 12px; color: var(--cyber-green);">ONLINE</td>
                             <td style="padding: 12px; color: var(--cyber-green);">98.7%</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
                             <td style="padding: 12px; color: var(--electric-blue);">CYB-002</td>
-                            <td style="padding: 12px; color: var(--electric-blue);">Neural Link Beta</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Ligação Neural Beta</td>
                             <td style="padding: 12px; color: var(--plasma-pink);">OFFLINE</td>
                             <td style="padding: 12px; color: var(--plasma-pink);">0%</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
                             <td style="padding: 12px; color: var(--electric-blue);">CYB-003</td>
-                            <td style="padding: 12px; color: var(--electric-blue);">Cyber Defense Grid</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Grade de Defesa Cyber</td>
                             <td style="padding: 12px; color: var(--cyber-green);">ONLINE</td>
                             <td style="padding: 12px; color: var(--cyber-green);">85.2%</td>
                         </tr>
@@ -562,30 +583,30 @@
 
         <!-- Forms Section -->
         <section id="forms" class="content-section">
-            <h2 class="section-title">🛡️ Ultimate Forms Laboratory</h2>
+            <h2 class="section-title">🛡️ Laboratório Definitivo de Formulários</h2>
             
             <!-- Advanced Form with Enhanced Elements -->
             <form id="cyberForm" style="background: var(--glass-standard); backdrop-filter: blur(25px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 40px; box-shadow: 0 0 50px var(--electric-blue);">
                 
                 <!-- Enhanced Text Inputs with Floating Labels -->
                 <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--cyber-green);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">📝 Advanced Input Systems</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">📝 Sistemas de Entrada Avançados</h3>
                     
                     <div class="form-group floating-label">
                         <input type="text" class="form-input" id="neuralId" placeholder=" " required>
-                        <label for="neuralId" class="form-label">🧠 Neural Identity Code</label>
+                        <label for="neuralId" class="form-label">🧠 Código de Identidade Neural</label>
                         <div class="validation-message" id="neuralId-validation"></div>
                     </div>
 
                     <div class="form-group floating-label">
                         <input type="email" class="form-input" id="quantumEmail" placeholder=" " required>
-                        <label for="quantumEmail" class="form-label">📧 Quantum Email</label>
+                        <label for="quantumEmail" class="form-label">📧 Email Quântico</label>
                         <div class="validation-message" id="quantumEmail-validation"></div>
                     </div>
 
                     <div class="form-group floating-label">
                         <input type="password" class="form-input" id="securityKey" placeholder=" " required>
-                        <label for="securityKey" class="form-label">🔐 Security Key</label>
+                        <label for="securityKey" class="form-label">🔐 Chave de Segurança</label>
                         <div class="password-strength">
                             <div class="password-strength-fill" id="strength-fill"></div>
                         </div>
@@ -594,70 +615,70 @@
 
                     <div class="form-group floating-label">
                         <textarea class="form-input" id="missionReport" placeholder=" " rows="4"></textarea>
-                        <label for="missionReport" class="form-label">📋 Mission Report</label>
+                        <label for="missionReport" class="form-label">📋 Relatório da Missão</label>
                         <div style="display: flex; justify-content: between; margin-top: 5px;">
                             <div class="validation-message" id="missionReport-validation"></div>
-                            <span id="word-count" style="color: var(--electric-blue); font-size: 0.8rem;">0 words</span>
+                            <span id="word-count" style="color: var(--electric-blue); font-size: 0.8rem;">0 palavras</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Advanced Selection Controls -->
                 <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--electric-blue);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">⚡ Selection Matrix</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">⚡ Matrix de Seleção</h3>
                     
                     <div class="form-group">
-                        <label class="form-label">🌐 Neural Network:</label>
+                        <label class="form-label">🌐 Rede Neural:</label>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
                             <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple); cursor: pointer;">
                                 <input type="radio" name="network" value="quantum" class="cyber-radio" style="margin-right: 10px;">
-                                <span style="color: var(--electric-blue);">🔮 Quantum Matrix</span>
+                                <span style="color: var(--electric-blue);">🔮 Matrix Quântica</span>
                             </label>
                             <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple); cursor: pointer;">
                                 <input type="radio" name="network" value="neural" class="cyber-radio" style="margin-right: 10px;">
-                                <span style="color: var(--electric-blue);">🧠 Neural Link</span>
+                                <span style="color: var(--electric-blue);">🧠 Ligação Neural</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">🔧 Security Modules:</label>
+                        <label class="form-label">🔧 Módulos de Segurança:</label>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
                             <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--cyber-green); cursor: pointer;">
                                 <input type="checkbox" value="firewall" class="cyber-checkbox" style="margin-right: 10px;">
-                                <span style="color: var(--electric-blue);">🔥 Quantum Firewall</span>
+                                <span style="color: var(--electric-blue);">🔥 Firewall Quântico</span>
                             </label>
                             <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--cyber-green); cursor: pointer;">
                                 <input type="checkbox" value="encryption" class="cyber-checkbox" style="margin-right: 10px;">
-                                <span style="color: var(--electric-blue);">🔐 Neural Encryption</span>
+                                <span style="color: var(--electric-blue);">🔐 Criptografia Neural</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">🌍 Combat Zone:</label>
+                        <label class="form-label">🌍 Zona de Combate:</label>
                         <select class="cyber-select" id="theater" required>
-                            <option value="">🚫 Select Zone...</option>
-                            <option value="neo-tokyo">🏙️ Neo Tokyo Sector</option>
-                            <option value="cyber-city">🌆 Cyber City Matrix</option>
-                            <option value="digital-realm">💻 Digital Realm</option>
-                            <option value="quantum-zone">⚛️ Quantum Zone</option>
+                            <option value="">🚫 Selecionar Zona...</option>
+                            <option value="neo-tokyo">🏙️ Setor Neo Tóquio</option>
+                            <option value="cyber-city">🌆 Matrix da Cidade Cyber</option>
+                            <option value="digital-realm">💻 Reino Digital</option>
+                            <option value="quantum-zone">⚛️ Zona Quântica</option>
                         </select>
                     </div>
 
                     <!-- Toggle Switches -->
                     <div class="form-group">
-                        <label class="form-label">⚡ System Switches:</label>
+                        <label class="form-label">⚡ Interruptores do Sistema:</label>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
                             <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple);">
-                                <span style="color: var(--electric-blue);">🔋 Power Core</span>
+                                <span style="color: var(--electric-blue);">🔋 Núcleo de Energia</span>
                                 <label class="cyber-toggle">
                                     <input type="checkbox" id="powerCore">
                                     <span class="toggle-slider"></span>
                                 </label>
                             </div>
                             <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple);">
-                                <span style="color: var(--electric-blue);">🌐 Network Link</span>
+                                <span style="color: var(--electric-blue);">🌐 Ligação de Rede</span>
                                 <label class="cyber-toggle">
                                     <input type="checkbox" id="networkLink">
                                     <span class="toggle-slider"></span>
@@ -669,15 +690,15 @@
 
                 <!-- Advanced Controls -->
                 <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--plasma-pink);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">🎛️ Control Systems</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">🎛️ Sistemas de Controle</h3>
                     
                     <div class="form-group">
-                        <label class="form-label">⚡ Power Level: <span id="powerValue">50</span>%</label>
+                        <label class="form-label">⚡ Nível de Energia: <span id="powerValue">50</span>%</label>
                         <input type="range" min="0" max="100" value="50" class="cyber-range" oninput="document.getElementById('powerValue').textContent = this.value; updateProgress(this.value);">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">🎨 Neon Spectrum:</label>
+                        <label class="form-label">🎨 Espectro Neon:</label>
                         <div style="display: flex; gap: 15px; align-items: center; margin-top: 10px;">
                             <input type="color" value="#00ffff" id="neonColor" style="width: 60px; height: 40px; border: 2px solid var(--electric-blue); border-radius: 10px; cursor: pointer;">
                             <div style="background: var(--glass-subtle); padding: 15px; border-radius: 10px; border: 1px solid var(--electric-blue); flex: 1;">
@@ -689,17 +710,17 @@
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                         <div class="form-group">
-                            <label class="form-label">📅 Mission Date:</label>
+                            <label class="form-label">📅 Data da Missão:</label>
                             <input type="date" class="cyber-datetime" id="missionDate">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">⏰ Deploy Time:</label>
+                            <label class="form-label">⏰ Horário de Deploy:</label>
                             <input type="time" class="cyber-datetime" id="deploymentTime">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">📊 Mission Progress:</label>
+                        <label class="form-label">📊 Progresso da Missão:</label>
                         <div class="cyber-progress">
                             <div class="cyber-progress-fill" id="missionProgress" style="width: 0%;"></div>
                         </div>
@@ -711,14 +732,14 @@
 
                 <!-- File Upload Portal -->
                 <div style="margin-bottom: 30px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--cyber-green);">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 20px; text-align: center;">📁 Data Transfer Portal</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 20px; text-align: center;">📁 Portal de Transferência de Dados</h3>
                     
                     <div class="file-upload-zone" id="uploadZone" style="border: 2px dashed var(--electric-blue); border-radius: 15px; padding: 40px; text-align: center; cursor: pointer;">
                         <input type="file" multiple style="display: none;" id="fileInput">
                         <div onclick="document.getElementById('fileInput').click();">
                             <div style="font-size: 3rem; margin-bottom: 15px;">📤</div>
-                            <p style="color: var(--electric-blue); font-size: 1.2rem;">🔄 Drag & Drop Files</p>
-                            <p style="color: var(--electric-blue); font-size: 0.9rem;">or click to browse</p>
+                            <p style="color: var(--electric-blue); font-size: 1.2rem;">🔄 Arraste e Solte Arquivos</p>
+                            <p style="color: var(--electric-blue); font-size: 0.9rem;">ou clique para navegar</p>
                         </div>
                     </div>
                 </div>
@@ -726,10 +747,10 @@
                 <!-- Submission Portal -->
                 <div style="text-align: center; margin-top: 30px; padding: 30px; background: var(--glass-standard); border-radius: 20px; border: 2px solid var(--electric-blue);">
                     <button type="submit" class="cyber-button" id="submitBtn" style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue)); padding: 20px 40px; margin: 10px;">
-                        🚀 DEPLOY TO MATRIX 🚀
+                        🚀 FAZER DEPLOY NA MATRIX 🚀
                     </button>
                     <button type="reset" class="cyber-button" onclick="resetForm()" style="background: linear-gradient(45deg, var(--plasma-pink), var(--neon-purple)); padding: 20px 40px; margin: 10px;">
-                        🔄 RESET SYSTEMS 🔄
+                        🔄 RESETAR SISTEMAS 🔄
                     </button>
                 </div>
             </form>
@@ -737,34 +758,72 @@
 
         <!-- Media Section -->
         <section id="media" class="content-section">
-            <h2 class="section-title">🎬 Secondary Cyberpunk Media Hub</h2>
+            <h2 class="section-title">🎬 Hub de Mídia Cyberpunk Secundário</h2>
             <div style="text-align: center; margin: 60px 0;">
                 <div style="background: var(--glass-standard); backdrop-filter: blur(20px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 30px; box-shadow: 0 0 50px var(--electric-blue); position: relative;">
-                    <h3 style="color: var(--cyber-green); margin-bottom: 20px;">🎥 Autoplay Video Experience</h3>
+                    <h3 style="color: var(--cyber-green); margin-bottom: 20px;">🎥 Experiência de Vídeo Autoplay</h3>
                     <video autoplay muted loop style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 0 30px var(--neon-purple);">
                         <source src="video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+                        Seu navegador não suporta a tag de vídeo.
                     </video>
-                    <p style="color: var(--electric-blue); margin-top: 15px; font-size: 0.9rem;">🔄 Continuous loop • 🔇 Auto-muted • ⚡ Performance optimized</p>
+                    <p style="color: var(--electric-blue); margin-top: 15px; font-size: 0.9rem;">🔄 Loop contínuo • 🔇 Auto-silenciado • ⚡ Performance otimizada</p>
                 </div>
             </div>
 
             <!-- Image Gallery -->
             <div style="margin: 60px 0;">
-                <h3 style="color: var(--cyber-green); text-align: center; margin-bottom: 30px;">🖼️ Cyberpunk Asset Gallery</h3>
+                <h3 style="color: var(--cyber-green); text-align: center; margin-bottom: 30px;">🖼️ Galeria de Assets Cyberpunk</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                     <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--neon-purple);">
-                        <img src="1365733-cyberpunk-scifi-neon-artist-artwork-digital-art.jpg" alt="Cyberpunk Cityscape" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--electric-blue);">
-                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🏙️ Neo Tokyo Skyline</p>
+                        <img src="1365733-cyberpunk-scifi-neon-artist-artwork-digital-art.jpg" alt="Paisagem Cyberpunk" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--electric-blue);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🏙️ Horizonte Neo Tóquio</p>
                     </div>
                     <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--cyber-green);">
-                        <img src="pngtree-cyberpunk-game-movie-character-portrait-modeling-png-image_9015365.png" alt="Cyberpunk Character 1" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--cyber-green);">
-                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🤖 Cyber Warrior Alpha</p>
+                        <img src="pngtree-cyberpunk-game-movie-character-portrait-modeling-png-image_9015365.png" alt="Personagem Cyberpunk 1" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--cyber-green);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🤖 Guerreiro Cyber Alpha</p>
                     </div>
                     <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--plasma-pink);">
-                        <img src="pngtree-cyberpunk-movie-game-character-portrait-modeling-png-image_9015364.png" alt="Cyberpunk Character 2" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--plasma-pink);">
-                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">👤 Neural Hacker Beta</p>
+                        <img src="pngtree-cyberpunk-movie-game-character-portrait-modeling-png-image_9015364.png" alt="Personagem Cyberpunk 2" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--plasma-pink);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">👤 Hacker Neural Beta</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Video Player -->
+        <section style="margin: 80px 0 40px 0; padding: 40px; background: var(--glass-standard); backdrop-filter: blur(20px); border: 1px solid var(--glass-prominent); border-radius: 30px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px var(--electric-blue); position: relative; overflow: hidden;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2rem; color: var(--cyber-green); text-shadow: 0 0 20px var(--cyber-green); background: linear-gradient(45deg, var(--cyber-green), var(--electric-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🎬 Portal de Vídeo Secundário</h2>
+            </div>
+            <div style="background: var(--glass-standard); backdrop-filter: blur(20px); border: 2px solid var(--plasma-pink); border-radius: 20px; padding: 30px; box-shadow: 0 0 50px var(--plasma-pink); position: relative;">
+                <h3 style="color: var(--plasma-pink); margin-bottom: 20px; text-align: center;">📺 Transmissão Contínua</h3>
+                <video autoplay muted loop style="width: 100%; max-width: 800px; height: auto; border-radius: 15px; box-shadow: 0 0 30px var(--plasma-pink); display: block; margin: 0 auto; background: var(--deep-space);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <source src="./video.mp4" type="video/mp4">
+                    <source src="video.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div style="display: none; width: 100%; max-width: 800px; height: 300px; background: linear-gradient(135deg, var(--deep-space), var(--plasma-pink), var(--electric-blue)); border-radius: 15px; box-shadow: 0 0 30px var(--plasma-pink); margin: 0 auto; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--electric-blue);">
+                        <div style="font-size: 4rem; margin-bottom: 20px;">📺</div>
+                        <h3 style="color: var(--plasma-pink); margin-bottom: 10px;">Secondary Portal</h3>
+                        <p style="color: var(--electric-blue); font-size: 0.9rem;">Video Loading...</p>
+                    </div>
+                    <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 2s infinite;"></div>
+                </div>
+                <p style="color: var(--electric-blue); margin-top: 15px; font-size: 0.9rem; text-align: center;">🔄 Loop contínuo • 🔇 Auto-silenciado • ⚡ Performance otimizada</p>
+            </div>
+        </section>
+
+        <!-- Neo Tokyo Skyline Wallpaper -->
+        <section style="margin: 80px 0 40px 0; padding: 0; background: var(--glass-standard); backdrop-filter: blur(20px); border: 1px solid var(--glass-prominent); border-radius: 30px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px var(--electric-blue); position: relative; overflow: hidden;">
+            <div style="text-align: center; padding: 20px 40px;">
+                <h2 style="font-size: 2rem; color: var(--cyber-green); text-shadow: 0 0 20px var(--cyber-green); background: linear-gradient(45deg, var(--cyber-green), var(--electric-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px;">🏙️ Horizonte Neo Tokyo</h2>
+            </div>
+            <div style="position: relative; width: 100%; height: 400px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--deep-space), #1a1a2e, #16213e);">
+                <img src="1365733-cyberpunk-scifi-neon-artist-artwork-digital-art.jpg" alt="Neo Tokyo Skyline" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, var(--glass-subtle), transparent, var(--glass-subtle)); backdrop-filter: blur(1px);"></div>
+                <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--glass-standard); backdrop-filter: blur(15px); border: 1px solid var(--electric-blue); border-radius: 25px; padding: 15px 30px; box-shadow: 0 0 30px var(--electric-blue);">
+                    <p style="color: var(--electric-blue); margin: 0; font-size: 1rem; text-align: center;">🌆 Paisagem Cyberpunk • 🎨 Arte Digital • ⚡ Estética Neon</p>
                 </div>
             </div>
         </section>
@@ -955,7 +1014,7 @@
             validationDiv.textContent = '';
             
             if (field.hasAttribute('required') && !value) {
-                showValidation(field, 'This field is required', 'error');
+                showValidation(field, 'Este campo é obrigatório', 'error');
                 return;
             }
             
@@ -963,33 +1022,33 @@
             switch(field.type) {
                 case 'email':
                     if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                        showValidation(field, 'Please enter a valid cyber address', 'error');
+                        showValidation(field, 'Por favor, insira um endereço cyber válido', 'error');
                     } else if (value) {
-                        showValidation(field, 'Quantum link established', 'success');
+                        showValidation(field, 'Ligação quântica estabelecida', 'success');
                     }
                     break;
                 case 'password':
                     if (value) {
                         updatePasswordStrength(value);
                         if (value.length < 8) {
-                            showValidation(field, 'Security key too weak (min 8 chars)', 'error');
+                            showValidation(field, 'Chave de segurança muito fraca (mín 8 chars)', 'error');
                         } else {
-                            showValidation(field, 'Encryption protocol active', 'success');
+                            showValidation(field, 'Protocolo de criptografia ativo', 'success');
                         }
                     }
                     break;
                 case 'url':
                     if (value && !/^https?:\/\/.+/.test(value)) {
-                        showValidation(field, 'Portal must start with http:// or https://', 'error');
+                        showValidation(field, 'Portal deve começar com http:// ou https://', 'error');
                     } else if (value) {
-                        showValidation(field, 'Portal gateway validated', 'success');
+                        showValidation(field, 'Gateway do portal validado', 'success');
                     }
                     break;
                 case 'tel':
                     if (value && !/^[\d\s\-\+\(\)]+$/.test(value)) {
-                        showValidation(field, 'Invalid communication channel format', 'error');
+                        showValidation(field, 'Formato de canal de comunicação inválido', 'error');
                     } else if (value) {
-                        showValidation(field, 'Communication link active', 'success');
+                        showValidation(field, 'Ligação de comunicação ativa', 'success');
                     }
                     break;
             }
@@ -1094,7 +1153,7 @@
             }
             
             // Show reset confirmation
-            showTemporaryMessage('🔄 SYSTEMS RESET COMPLETE! 🔄', 'success');
+            showTemporaryMessage('🔄 RESET DOS SISTEMAS COMPLETO! 🔄', 'success');
         }
 
         function showTemporaryMessage(message, type) {
