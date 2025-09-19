@@ -70,13 +70,13 @@ graph TB
 | Fluxo Espaço Profundo | linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) | Fundo da página |
 | Mudança Holográfica | conic-gradient(from 0deg, #8a2be2, #00ffff, #39ff14, #ff1493, #8a2be2) | Efeitos especiais |
 
-#### Advanced Gradient Design Patterns
+#### Padrões Avançados de Design de Gradiente
 
-**Background Gradient Architecture**
-- **Primary Viewport**: Animated cosmic nebula with slow rotation effect
-- **Section Dividers**: Plasma wave gradients with opacity transitions
-- **Card Containers**: Multi-layer gradient stacking with glass overlay
-- **Interactive Zones**: Electric storm gradients with intensity variations
+**Arquitetura de Gradiente de Fundo**
+- **Viewport Primário**: Nebulosa cósmica animada com efeito de rotação lenta
+- **Divisores de Seção**: Gradientes de onda plasma com transições de opacidade
+- **Contêineres de Cartão**: Empilhamento de gradientes multicamadas com sobreposição de vidro
+- **Zonas Interativas**: Gradientes de tempestade elétrica com variações de intensidade
 
 **Dynamic Gradient Behaviors**
 | Element Type | Base Gradient | Hover Gradient | Active Gradient | Transition Duration |
