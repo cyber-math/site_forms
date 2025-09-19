@@ -185,7 +185,232 @@
             background: linear-gradient(45deg, var(--electric-blue), var(--plasma-pink));
         }
 
-        /* Responsive Design */
+        /* Advanced Form Enhancements */
+        .floating-label {
+            position: relative;
+        }
+
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label {
+            transform: translateY(-25px) scale(0.8);
+            color: var(--cyber-green);
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: var(--deep-space);
+            padding: 0 5px;
+        }
+
+        /* Password Strength Meter */
+        .password-strength {
+            height: 4px;
+            background: var(--glass-subtle);
+            border-radius: 2px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .password-strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-weak { background: var(--plasma-pink); width: 25%; }
+        .strength-fair { background: #ff8c00; width: 50%; }
+        .strength-good { background: #ffff00; width: 75%; }
+        .strength-strong { background: var(--cyber-green); width: 100%; }
+
+        /* Advanced Toggle Switches */
+        .cyber-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .cyber-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glass-subtle);
+            border: 2px solid var(--neon-purple);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background: var(--electric-blue);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        input:checked + .toggle-slider {
+            background: var(--cyber-green);
+            border-color: var(--cyber-green);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+            background: var(--void-black);
+            box-shadow: 0 0 15px var(--cyber-green);
+        }
+
+        /* Date/Time Pickers */
+        .cyber-datetime {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--glass-subtle);
+            border: 2px solid var(--neon-purple);
+            border-radius: 15px;
+            color: var(--electric-blue);
+            font-family: 'Courier New', monospace;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .cyber-datetime::-webkit-calendar-picker-indicator {
+            background: linear-gradient(45deg, var(--electric-blue), var(--cyber-green));
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Number Spinners */
+        .cyber-number {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--glass-subtle);
+            border: 2px solid var(--neon-purple);
+            border-radius: 15px;
+            color: var(--electric-blue);
+            font-family: 'Courier New', monospace;
+            backdrop-filter: blur(10px);
+        }
+
+        .cyber-number::-webkit-outer-spin-button,
+        .cyber-number::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Progress Bars */
+        .cyber-progress {
+            width: 100%;
+            height: 20px;
+            background: var(--glass-subtle);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--electric-blue);
+            position: relative;
+        }
+
+        .cyber-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--electric-blue), var(--cyber-green));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Validation States */
+        .form-input.valid {
+            border-color: var(--cyber-green);
+            box-shadow: 0 0 15px var(--cyber-green);
+        }
+
+        .form-input.invalid {
+            border-color: var(--plasma-pink);
+            box-shadow: 0 0 15px var(--plasma-pink);
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .validation-message {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: var(--glass-subtle);
+        }
+
+        .validation-message.success {
+            color: var(--cyber-green);
+            border-left: 3px solid var(--cyber-green);
+        }
+
+        .validation-message.error {
+            color: var(--plasma-pink);
+            border-left: 3px solid var(--plasma-pink);
+        }
+
+        /* Advanced Button States */
+        .cyber-button.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .cyber-button.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         @media (max-width: 768px) {
             .nav-container {
                 position: relative;
@@ -338,82 +563,174 @@
         <!-- Forms Section -->
         <section id="forms" class="content-section">
             <h2 class="section-title">🛡️ Ultimate Forms Laboratory</h2>
-            <form style="background: var(--glass-standard); backdrop-filter: blur(25px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 40px; box-shadow: 0 0 50px var(--electric-blue);">
-                <!-- Text Inputs -->
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🧠 Neural ID:</label>
-                    <input type="text" placeholder="Enter your cyber identity..." style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">📧 Quantum Email:</label>
-                    <input type="email" placeholder="cyber@matrix.net" style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🔒 Security Protocol:</label>
-                    <input type="password" placeholder="Enter encryption key..." style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
-                </div>
-
-                <!-- Selection Elements -->
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">⚡ Neural Network Type:</label>
-                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="quantum" style="margin-right: 8px; accent-color: var(--cyber-green);"> Quantum Matrix</label>
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="neural" style="margin-right: 8px; accent-color: var(--cyber-green);"> Neural Link</label>
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="cyber" style="margin-right: 8px; accent-color: var(--cyber-green);"> Cyber Defense</label>
+            
+            <!-- Advanced Form with Enhanced Elements -->
+            <form id="cyberForm" style="background: var(--glass-standard); backdrop-filter: blur(25px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 40px; box-shadow: 0 0 50px var(--electric-blue);">
+                
+                <!-- Enhanced Text Inputs with Floating Labels -->
+                <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--cyber-green);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">📝 Advanced Input Systems</h3>
+                    
+                    <div class="form-group floating-label">
+                        <input type="text" class="form-input" id="neuralId" placeholder=" " required>
+                        <label for="neuralId" class="form-label">🧠 Neural Identity Code</label>
+                        <div class="validation-message" id="neuralId-validation"></div>
                     </div>
-                </div>
 
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🛡️ Security Modules:</label>
-                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="firewall" style="margin-right: 8px; accent-color: var(--cyber-green);"> Quantum Firewall</label>
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="encryption" style="margin-right: 8px; accent-color: var(--cyber-green);"> Neural Encryption</label>
-                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="scanner" style="margin-right: 8px; accent-color: var(--cyber-green);"> Threat Scanner</label>
+                    <div class="form-group floating-label">
+                        <input type="email" class="form-input" id="quantumEmail" placeholder=" " required>
+                        <label for="quantumEmail" class="form-label">📧 Quantum Email</label>
+                        <div class="validation-message" id="quantumEmail-validation"></div>
                     </div>
-                </div>
 
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🌐 System Region:</label>
-                    <select style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace;" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
-                        <option value="">Select Cyber Region...</option>
-                        <option value="neo-tokyo">Neo Tokyo Sector</option>
-                        <option value="cyber-city">Cyber City Matrix</option>
-                        <option value="digital-realm">Digital Realm</option>
-                        <option value="quantum-zone">Quantum Zone</option>
-                    </select>
-                </div>
+                    <div class="form-group floating-label">
+                        <input type="password" class="form-input" id="securityKey" placeholder=" " required>
+                        <label for="securityKey" class="form-label">🔐 Security Key</label>
+                        <div class="password-strength">
+                            <div class="password-strength-fill" id="strength-fill"></div>
+                        </div>
+                        <div class="validation-message" id="securityKey-validation"></div>
+                    </div>
 
-                <!-- Advanced Controls -->
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">⚡ Power Level: <span id="powerValue">50</span>%</label>
-                    <input type="range" min="0" max="100" value="50" style="width: 100%; height: 8px; background: var(--glass-subtle); border-radius: 5px; outline: none; accent-color: var(--cyber-green);" oninput="document.getElementById('powerValue').textContent = this.value">
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🎨 Neon Color:</label>
-                    <input type="color" value="#00ffff" style="width: 100px; height: 40px; border: 2px solid var(--electric-blue); border-radius: 10px; background: var(--glass-subtle); cursor: pointer;">
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">📁 Upload Cyber Data:</label>
-                    <div style="border: 2px dashed var(--electric-blue); border-radius: 15px; padding: 30px; text-align: center; background: var(--glass-subtle); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--cyber-green)'; this.style.background='var(--glass-standard)'" onmouseout="this.style.borderColor='var(--electric-blue)'; this.style.background='var(--glass-subtle)'">
-                        <input type="file" multiple style="display: none;" id="fileInput">
-                        <div onclick="document.getElementById('fileInput').click();">
-                            <p style="color: var(--electric-blue); font-size: 1.2rem;">📤 Click to Upload Files</p>
-                            <p style="color: var(--electric-blue); font-size: 0.9rem;">Drag & Drop supported</p>
+                    <div class="form-group floating-label">
+                        <textarea class="form-input" id="missionReport" placeholder=" " rows="4"></textarea>
+                        <label for="missionReport" class="form-label">📋 Mission Report</label>
+                        <div style="display: flex; justify-content: between; margin-top: 5px;">
+                            <div class="validation-message" id="missionReport-validation"></div>
+                            <span id="word-count" style="color: var(--electric-blue); font-size: 0.8rem;">0 words</span>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">💭 Cyber Message:</label>
-                    <textarea placeholder="Enter your message to the matrix..." rows="4" style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; resize: vertical; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'"></textarea>
+                <!-- Advanced Selection Controls -->
+                <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--electric-blue);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">⚡ Selection Matrix</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">🌐 Neural Network:</label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple); cursor: pointer;">
+                                <input type="radio" name="network" value="quantum" class="cyber-radio" style="margin-right: 10px;">
+                                <span style="color: var(--electric-blue);">🔮 Quantum Matrix</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple); cursor: pointer;">
+                                <input type="radio" name="network" value="neural" class="cyber-radio" style="margin-right: 10px;">
+                                <span style="color: var(--electric-blue);">🧠 Neural Link</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">🔧 Security Modules:</label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--cyber-green); cursor: pointer;">
+                                <input type="checkbox" value="firewall" class="cyber-checkbox" style="margin-right: 10px;">
+                                <span style="color: var(--electric-blue);">🔥 Quantum Firewall</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--cyber-green); cursor: pointer;">
+                                <input type="checkbox" value="encryption" class="cyber-checkbox" style="margin-right: 10px;">
+                                <span style="color: var(--electric-blue);">🔐 Neural Encryption</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">🌍 Combat Zone:</label>
+                        <select class="cyber-select" id="theater" required>
+                            <option value="">🚫 Select Zone...</option>
+                            <option value="neo-tokyo">🏙️ Neo Tokyo Sector</option>
+                            <option value="cyber-city">🌆 Cyber City Matrix</option>
+                            <option value="digital-realm">💻 Digital Realm</option>
+                            <option value="quantum-zone">⚛️ Quantum Zone</option>
+                        </select>
+                    </div>
+
+                    <!-- Toggle Switches -->
+                    <div class="form-group">
+                        <label class="form-label">⚡ System Switches:</label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple);">
+                                <span style="color: var(--electric-blue);">🔋 Power Core</span>
+                                <label class="cyber-toggle">
+                                    <input type="checkbox" id="powerCore">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--glass-subtle); border-radius: 10px; border: 1px solid var(--neon-purple);">
+                                <span style="color: var(--electric-blue);">🌐 Network Link</span>
+                                <label class="cyber-toggle">
+                                    <input type="checkbox" id="networkLink">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 30px;">
-                    <button type="submit" class="cyber-button" style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue)); border: none; padding: 15px 40px; border-radius: 25px; color: white; font-family: 'Courier New', monospace; font-size: 1.1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 0 30px var(--electric-blue);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 50px var(--electric-blue)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px var(--electric-blue)'">🚀 DEPLOY TO MATRIX 🚀</button>
+                <!-- Advanced Controls -->
+                <div style="margin-bottom: 40px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--plasma-pink);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 25px; text-align: center;">🎛️ Control Systems</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">⚡ Power Level: <span id="powerValue">50</span>%</label>
+                        <input type="range" min="0" max="100" value="50" class="cyber-range" oninput="document.getElementById('powerValue').textContent = this.value; updateProgress(this.value);">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">🎨 Neon Spectrum:</label>
+                        <div style="display: flex; gap: 15px; align-items: center; margin-top: 10px;">
+                            <input type="color" value="#00ffff" id="neonColor" style="width: 60px; height: 40px; border: 2px solid var(--electric-blue); border-radius: 10px; cursor: pointer;">
+                            <div style="background: var(--glass-subtle); padding: 15px; border-radius: 10px; border: 1px solid var(--electric-blue); flex: 1;">
+                                <div>HEX: <span id="colorHex">#00ffff</span></div>
+                                <div>RGB: <span id="colorRgb">rgb(0, 255, 255)</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">📅 Mission Date:</label>
+                            <input type="date" class="cyber-datetime" id="missionDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">⏰ Deploy Time:</label>
+                            <input type="time" class="cyber-datetime" id="deploymentTime">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">📊 Mission Progress:</label>
+                        <div class="cyber-progress">
+                            <div class="cyber-progress-fill" id="missionProgress" style="width: 0%;"></div>
+                        </div>
+                        <div style="text-align: center; margin-top: 5px; color: var(--electric-blue);">
+                            <span id="progressPercentage">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Upload Portal -->
+                <div style="margin-bottom: 30px; padding: 30px; background: var(--glass-subtle); border-radius: 15px; border: 1px solid var(--cyber-green);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 20px; text-align: center;">📁 Data Transfer Portal</h3>
+                    
+                    <div class="file-upload-zone" id="uploadZone" style="border: 2px dashed var(--electric-blue); border-radius: 15px; padding: 40px; text-align: center; cursor: pointer;">
+                        <input type="file" multiple style="display: none;" id="fileInput">
+                        <div onclick="document.getElementById('fileInput').click();">
+                            <div style="font-size: 3rem; margin-bottom: 15px;">📤</div>
+                            <p style="color: var(--electric-blue); font-size: 1.2rem;">🔄 Drag & Drop Files</p>
+                            <p style="color: var(--electric-blue); font-size: 0.9rem;">or click to browse</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submission Portal -->
+                <div style="text-align: center; margin-top: 30px; padding: 30px; background: var(--glass-standard); border-radius: 20px; border: 2px solid var(--electric-blue);">
+                    <button type="submit" class="cyber-button" id="submitBtn" style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue)); padding: 20px 40px; margin: 10px;">
+                        🚀 DEPLOY TO MATRIX 🚀
+                    </button>
+                    <button type="reset" class="cyber-button" onclick="resetForm()" style="background: linear-gradient(45deg, var(--plasma-pink), var(--neon-purple)); padding: 20px 40px; margin: 10px;">
+                        🔄 RESET SYSTEMS 🔄
+                    </button>
                 </div>
             </form>
         </section>
@@ -614,11 +931,224 @@
             }
         }
 
-        // Initialize theme adaptation
-        adaptThemeColor();
-        
-        // Update theme every hour
-        setInterval(adaptThemeColor, 3600000);
+        // Enhanced Form Validation System
+        function initializeAdvancedValidation() {
+            const form = document.getElementById('cyberForm');
+            const inputs = form.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                input.addEventListener('input', validateField);
+                input.addEventListener('blur', validateField);
+            });
+        }
+
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value;
+            const fieldId = field.id;
+            const validationDiv = document.getElementById(fieldId + '-validation');
+            
+            if (!validationDiv) return;
+            
+            // Clear previous validation
+            field.classList.remove('valid', 'invalid');
+            validationDiv.textContent = '';
+            
+            if (field.hasAttribute('required') && !value) {
+                showValidation(field, 'This field is required', 'error');
+                return;
+            }
+            
+            // Specific validation rules
+            switch(field.type) {
+                case 'email':
+                    if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                        showValidation(field, 'Please enter a valid cyber address', 'error');
+                    } else if (value) {
+                        showValidation(field, 'Quantum link established', 'success');
+                    }
+                    break;
+                case 'password':
+                    if (value) {
+                        updatePasswordStrength(value);
+                        if (value.length < 8) {
+                            showValidation(field, 'Security key too weak (min 8 chars)', 'error');
+                        } else {
+                            showValidation(field, 'Encryption protocol active', 'success');
+                        }
+                    }
+                    break;
+                case 'url':
+                    if (value && !/^https?:\/\/.+/.test(value)) {
+                        showValidation(field, 'Portal must start with http:// or https://', 'error');
+                    } else if (value) {
+                        showValidation(field, 'Portal gateway validated', 'success');
+                    }
+                    break;
+                case 'tel':
+                    if (value && !/^[\d\s\-\+\(\)]+$/.test(value)) {
+                        showValidation(field, 'Invalid communication channel format', 'error');
+                    } else if (value) {
+                        showValidation(field, 'Communication link active', 'success');
+                    }
+                    break;
+            }
+        }
+
+        function showValidation(field, message, type) {
+            const validationDiv = document.getElementById(field.id + '-validation');
+            if (validationDiv) {
+                validationDiv.textContent = message;
+                validationDiv.className = `validation-message ${type}`;
+                field.classList.add(type === 'error' ? 'invalid' : 'valid');
+            }
+        }
+
+        function updatePasswordStrength(password) {
+            const strengthFill = document.getElementById('strength-fill');
+            if (!strengthFill) return;
+            
+            let strength = 0;
+            if (password.length >= 8) strength += 25;
+            if (/[a-z]/.test(password)) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            
+            strengthFill.className = 'password-strength-fill';
+            if (strength <= 25) strengthFill.classList.add('strength-weak');
+            else if (strength <= 50) strengthFill.classList.add('strength-fair');
+            else if (strength <= 75) strengthFill.classList.add('strength-good');
+            else strengthFill.classList.add('strength-strong');
+        }
+
+        // Color picker functionality
+        function initializeColorPicker() {
+            const colorPicker = document.getElementById('neonColor');
+            const hexDisplay = document.getElementById('colorHex');
+            const rgbDisplay = document.getElementById('colorRgb');
+            
+            if (colorPicker && hexDisplay && rgbDisplay) {
+                colorPicker.addEventListener('input', (e) => {
+                    const color = e.target.value;
+                    hexDisplay.textContent = color;
+                    
+                    // Convert hex to RGB
+                    const r = parseInt(color.substr(1,2), 16);
+                    const g = parseInt(color.substr(3,2), 16);
+                    const b = parseInt(color.substr(5,2), 16);
+                    rgbDisplay.textContent = `rgb(${r}, ${g}, ${b})`;
+                    
+                    // Apply color to page accents
+                    document.documentElement.style.setProperty('--user-accent', color);
+                });
+            }
+        }
+
+        // Progress tracking
+        function updateProgress(value) {
+            const progressBar = document.getElementById('missionProgress');
+            const progressText = document.getElementById('progressPercentage');
+            
+            if (progressBar && progressText) {
+                progressBar.style.width = value + '%';
+                progressText.textContent = value + '%';
+            }
+        }
+
+        // Word count for textarea
+        function initializeWordCount() {
+            const textarea = document.getElementById('missionReport');
+            const wordCount = document.getElementById('word-count');
+            
+            if (textarea && wordCount) {
+                textarea.addEventListener('input', () => {
+                    const words = textarea.value.trim().split(/\s+/).filter(word => word.length > 0);
+                    wordCount.textContent = words.length + ' words';
+                });
+            }
+        }
+
+        // Reset form function
+        function resetForm() {
+            const form = document.getElementById('cyberForm');
+            form.reset();
+            
+            // Clear all validation messages
+            document.querySelectorAll('.validation-message').forEach(div => {
+                div.textContent = '';
+                div.className = 'validation-message';
+            });
+            
+            // Reset input states
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.classList.remove('valid', 'invalid');
+            });
+            
+            // Reset progress
+            updateProgress(0);
+            
+            // Reset password strength
+            const strengthFill = document.getElementById('strength-fill');
+            if (strengthFill) {
+                strengthFill.className = 'password-strength-fill';
+            }
+            
+            // Show reset confirmation
+            showTemporaryMessage('🔄 SYSTEMS RESET COMPLETE! 🔄', 'success');
+        }
+
+        function showTemporaryMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--glass-standard);
+                backdrop-filter: blur(20px);
+                border: 2px solid var(--${type === 'success' ? 'cyber-green' : 'plasma-pink'});
+                border-radius: 15px;
+                padding: 20px 40px;
+                color: var(--${type === 'success' ? 'cyber-green' : 'plasma-pink'});
+                font-family: 'Courier New', monospace;
+                font-size: 1.2rem;
+                z-index: 10000;
+                animation: fadeInOut 3s ease-in-out;
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                document.body.removeChild(messageDiv);
+            }, 3000);
+        }
+
+        // Initialize all systems on load
+        window.addEventListener('load', () => {
+            initializeAdvancedValidation();
+            initializeColorPicker();
+            initializeWordCount();
+            
+            // Add CSS animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInOut {
+                    0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                
+                @keyframes cyberpulse {
+                    0%, 100% { box-shadow: 0 0 20px var(--electric-blue); }
+                    50% { box-shadow: 0 0 40px var(--electric-blue), 0 0 60px var(--electric-blue); }
+                }
+                
+                .cyber-button:hover {
+                    animation: cyberpulse 1.5s infinite;
+                }
+            `;
+            document.head.appendChild(style);
+        });
     </script>
 </body>
 </html>
