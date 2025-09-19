@@ -116,9 +116,9 @@ graph TB
 | Glow Effect | 0px | 0px | 20px | 2px | Current accent color | 0.4 |
 | Inner Highlight | inset 0px | 1px | 2px | 0px | #ffffff | 0.2 |
 
-## Featured Widget Gallery
+## Galeria de Widgets Destacados
 
-### Premium Interactive Components
+### Componentes Interativos Premium
 
 #### 1. Holographic Navigation Pills
 **Design Specification**: Floating navigation elements with dynamic holographic effects
@@ -272,15 +272,15 @@ graph TB
 | Export Functions | Cyber download portals | Format selection interface | Progress indicators |
 | Pagination Controls | Quantum page navigation | Smooth transition effects | Infinite scroll option |
 
-## Media Integration Architecture
+## Arquitetura de Integração de Mídia
 
-### Primary Video Assets
-- **Hero Background Video**: `Hailuo_Video_A cyberpunk shinobi, wreathed _425441435662598147.mp4`
-  - Seamless loop as main page background with glassmorphism overlay
-  - Dynamic shinobi warrior in cyberpunk atmosphere
-  - Performance-optimized looping with fade transitions
-- **Interactive Video Player**: Custom neon-styled controls with holographic interface
-- **Picture-in-Picture Support**: Floating video widgets with cyber frames
+### Ativos de Vídeo Primários
+- **Vídeo de Fundo Hero**: `Hailuo_Video_A cyberpunk shinobi, wreathed _425441435662598147.mp4`
+  - Loop sem emenda como fundo principal da página com sobreposição glassmorphism
+  - Guerreiro shinobi dinâmico em atmosfera cyberpunk
+  - Loop otimizado para performance com transições de fade
+- **Player de Vídeo Interativo**: Controles personalizados estilo néon com interface holográfica
+- **Suporte Picture-in-Picture**: Widgets de vídeo flutuantes com molduras cyber
 
 ### Complete Image Asset Gallery
 - **Primary Cyberpunk Artwork**: `1365733-cyberpunk-scifi-neon-artist-artwork-digital-art.jpg`

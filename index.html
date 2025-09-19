@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk HTML Form Exploration - Single Page Application</title>
+    <style>
+        /* Cyberpunk CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cyberpunk Color Palette */
+            --neon-purple: #8a2be2;
+            --electric-blue: #00ffff;
+            --plasma-pink: #ff1493;
+            --cyber-green: #39ff14;
+            --deep-space: #0a0a0a;
+            --void-black: #000000;
+            
+            /* Glass Morphism Levels */
+            --glass-subtle: rgba(255,255,255,0.05);
+            --glass-standard: rgba(255,255,255,0.1);
+            --glass-prominent: rgba(255,255,255,0.15);
+            --glass-intense: rgba(255,255,255,0.2);
+            --glass-maximum: rgba(255,255,255,0.25);
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(180deg, var(--deep-space) 0%, #1a1a2e 50%, #16213e 100%);
+            color: var(--electric-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Video Background */
+        .hero-video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--glass-subtle), var(--glass-standard));
+            backdrop-filter: blur(2px);
+            z-index: -1;
+        }
+
+        /* Glass Morphism Components */
+        .glass-container {
+            background: var(--glass-standard);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-prominent);
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 4px 16px var(--neon-purple);
+        }
+
+        /* Navigation System */
+        .nav-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: var(--glass-standard);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--electric-blue);
+            border-radius: 50px;
+            padding: 15px 30px;
+            box-shadow: 0 0 30px var(--electric-blue);
+        }
+
+        .nav-pills {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-pill {
+            padding: 10px 20px;
+            background: var(--glass-subtle);
+            border: 1px solid var(--neon-purple);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--electric-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-pill:hover {
+            background: var(--glass-intense);
+            box-shadow: 0 0 20px var(--neon-purple);
+            transform: scale(1.05);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            margin-top: 100px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styling */
+        .content-section {
+            margin: 80px 0;
+            padding: 40px;
+            background: var(--glass-standard);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-prominent);
+            border-radius: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 40px var(--electric-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--neon-purple), var(--electric-blue), var(--plasma-pink));
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--cyber-green);
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--cyber-green);
+            background: linear-gradient(45deg, var(--cyber-green), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cyberpunk Buttons */
+        .cyber-button {
+            background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue));
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cyber-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px var(--electric-blue);
+            background: linear-gradient(45deg, var(--electric-blue), var(--plasma-pink));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+                top: 10px;
+                margin-bottom: 20px;
+                padding: 10px 20px;
+            }
+
+            .nav-pills {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-pill {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
+            .main-container {
+                margin-top: 20px;
+                padding: 20px 10px;
+            }
+
+            .content-section {
+                margin: 40px 0;
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Video Background -->
+    <div class="hero-video-container">
+        <video class="hero-video" autoplay muted loop>
+            <source src="Hailuo_Video_A cyberpunk shinobi, wreathed _425441435662598147.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <ul class="nav-pills">
+            <li><a href="#home" class="nav-pill">Home</a></li>
+            <li><a href="#links" class="nav-pill">Links</a></li>
+            <li><a href="#lists" class="nav-pill">Lists</a></li>
+            <li><a href="#tables" class="nav-pill">Tables</a></li>
+            <li><a href="#forms" class="nav-pill">Forms</a></li>
+            <li><a href="#media" class="nav-pill">Media</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="content-section">
+            <h1 class="section-title">🚀 CYBERPUNK HTML EXPLORATION 🚀</h1>
+            <div style="text-align: center; font-size: 1.2rem; line-height: 2;">
+                <p>Welcome to the <span style="color: var(--cyber-green);">ULTIMATE</span> cyberpunk HTML form exploration!</p>
+                <p>Experience the future of web development with <span style="color: var(--plasma-pink);">glassmorphism</span> and <span style="color: var(--electric-blue);">neon aesthetics</span>.</p>
+                <br>
+                <button class="cyber-button" onclick="scrollToSection('forms')">START QUEST</button>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section id="links" class="content-section">
+            <h2 class="section-title">🔗 Advanced Clickable Links</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: var(--glass-subtle); padding: 20px; border-radius: 15px; border: 1px solid var(--neon-purple);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">📧 Contact Links</h3>
+                    <p><a href="mailto:aluno.den@senaibahia.com.br" style="color: var(--electric-blue); text-decoration: none;">✉️ Email: aluno.den@senaibahia.com.br</a></p>
+                    <p><a href="tel:+5571999999999" style="color: var(--electric-blue); text-decoration: none;">📱 Phone: +55 71 99999-9999</a></p>
+                </div>
+                <div style="background: var(--glass-subtle); padding: 20px; border-radius: 15px; border: 1px solid var(--electric-blue);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🌐 External Links</h3>
+                    <p><a href="https://github.com" target="_blank" style="color: var(--electric-blue); text-decoration: none;">🚀 GitHub Portal</a></p>
+                    <p><a href="https://codepen.io" target="_blank" style="color: var(--electric-blue); text-decoration: none;">✨ CodePen Lab</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lists Section -->
+        <section id="lists" class="content-section">
+            <h2 class="section-title">📋 Cyberpunk Data Structures</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: var(--glass-subtle); padding: 25px; border-radius: 15px; border: 1px solid var(--cyber-green);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">⚡ Unordered Data Stream</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Quantum Computing Basics</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Neural Network Architecture</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Cybersecurity Protocols</li>
+                        <li style="padding: 8px 0; color: var(--electric-blue); border-left: 3px solid var(--neon-purple); padding-left: 15px; margin: 10px 0;">▶ Digital Reality Systems</li>
+                    </ul>
+                </div>
+                <div style="background: var(--glass-subtle); padding: 25px; border-radius: 15px; border: 1px solid var(--plasma-pink);">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 15px;">🔢 Ordered Sequence Protocol</h3>
+                    <ol style="color: var(--electric-blue); padding-left: 20px;">
+                        <li style="padding: 5px 0;">Initialize Cyberpunk Interface</li>
+                        <li style="padding: 5px 0;">Establish Neural Connection</li>
+                        <li style="padding: 5px 0;">Execute Data Matrix Upload</li>
+                        <li style="padding: 5px 0;">Verify System Integration</li>
+                        <li style="padding: 5px 0;">Deploy Holographic Interface</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables" class="content-section">
+            <h2 class="section-title">📊 Holographic Data Matrix</h2>
+            <div style="overflow-x: auto; background: var(--glass-subtle); border-radius: 15px; padding: 20px;">
+                <table style="width: 100%; border-collapse: collapse; background: var(--glass-standard); backdrop-filter: blur(15px); border-radius: 10px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue));">
+                            <th style="padding: 15px; color: white; text-align: left;">SYSTEM ID</th>
+                            <th style="padding: 15px; color: white; text-align: left;">NEURAL NETWORK</th>
+                            <th style="padding: 15px; color: white; text-align: left;">STATUS</th>
+                            <th style="padding: 15px; color: white; text-align: left;">POWER LEVEL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
+                            <td style="padding: 12px; color: var(--electric-blue);">CYB-001</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Quantum Matrix Alpha</td>
+                            <td style="padding: 12px; color: var(--cyber-green);">ONLINE</td>
+                            <td style="padding: 12px; color: var(--cyber-green);">98.7%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
+                            <td style="padding: 12px; color: var(--electric-blue);">CYB-002</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Neural Link Beta</td>
+                            <td style="padding: 12px; color: var(--plasma-pink);">OFFLINE</td>
+                            <td style="padding: 12px; color: var(--plasma-pink);">0%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--glass-prominent);" onmouseover="this.style.background='var(--glass-prominent)'" onmouseout="this.style.background='transparent'">
+                            <td style="padding: 12px; color: var(--electric-blue);">CYB-003</td>
+                            <td style="padding: 12px; color: var(--electric-blue);">Cyber Defense Grid</td>
+                            <td style="padding: 12px; color: var(--cyber-green);">ONLINE</td>
+                            <td style="padding: 12px; color: var(--cyber-green);">85.2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="forms" class="content-section">
+            <h2 class="section-title">🛡️ Ultimate Forms Laboratory</h2>
+            <form style="background: var(--glass-standard); backdrop-filter: blur(25px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 40px; box-shadow: 0 0 50px var(--electric-blue);">
+                <!-- Text Inputs -->
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🧠 Neural ID:</label>
+                    <input type="text" placeholder="Enter your cyber identity..." style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">📧 Quantum Email:</label>
+                    <input type="email" placeholder="cyber@matrix.net" style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🔒 Security Protocol:</label>
+                    <input type="password" placeholder="Enter encryption key..." style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
+                </div>
+
+                <!-- Selection Elements -->
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">⚡ Neural Network Type:</label>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="quantum" style="margin-right: 8px; accent-color: var(--cyber-green);"> Quantum Matrix</label>
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="neural" style="margin-right: 8px; accent-color: var(--cyber-green);"> Neural Link</label>
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="radio" name="network" value="cyber" style="margin-right: 8px; accent-color: var(--cyber-green);"> Cyber Defense</label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🛡️ Security Modules:</label>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="firewall" style="margin-right: 8px; accent-color: var(--cyber-green);"> Quantum Firewall</label>
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="encryption" style="margin-right: 8px; accent-color: var(--cyber-green);"> Neural Encryption</label>
+                        <label style="color: var(--electric-blue); cursor: pointer; display: flex; align-items: center;"><input type="checkbox" value="scanner" style="margin-right: 8px; accent-color: var(--cyber-green);"> Threat Scanner</label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🌐 System Region:</label>
+                    <select style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace;" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'">
+                        <option value="">Select Cyber Region...</option>
+                        <option value="neo-tokyo">Neo Tokyo Sector</option>
+                        <option value="cyber-city">Cyber City Matrix</option>
+                        <option value="digital-realm">Digital Realm</option>
+                        <option value="quantum-zone">Quantum Zone</option>
+                    </select>
+                </div>
+
+                <!-- Advanced Controls -->
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">⚡ Power Level: <span id="powerValue">50</span>%</label>
+                    <input type="range" min="0" max="100" value="50" style="width: 100%; height: 8px; background: var(--glass-subtle); border-radius: 5px; outline: none; accent-color: var(--cyber-green);" oninput="document.getElementById('powerValue').textContent = this.value">
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">🎨 Neon Color:</label>
+                    <input type="color" value="#00ffff" style="width: 100px; height: 40px; border: 2px solid var(--electric-blue); border-radius: 10px; background: var(--glass-subtle); cursor: pointer;">
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">📁 Upload Cyber Data:</label>
+                    <div style="border: 2px dashed var(--electric-blue); border-radius: 15px; padding: 30px; text-align: center; background: var(--glass-subtle); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--cyber-green)'; this.style.background='var(--glass-standard)'" onmouseout="this.style.borderColor='var(--electric-blue)'; this.style.background='var(--glass-subtle)'">
+                        <input type="file" multiple style="display: none;" id="fileInput">
+                        <div onclick="document.getElementById('fileInput').click();">
+                            <p style="color: var(--electric-blue); font-size: 1.2rem;">📤 Click to Upload Files</p>
+                            <p style="color: var(--electric-blue); font-size: 0.9rem;">Drag & Drop supported</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; color: var(--cyber-green); margin-bottom: 8px; font-weight: bold;">💭 Cyber Message:</label>
+                    <textarea placeholder="Enter your message to the matrix..." rows="4" style="width: 100%; padding: 15px 20px; background: var(--glass-subtle); border: 2px solid var(--neon-purple); border-radius: 15px; color: var(--electric-blue); font-family: 'Courier New', monospace; resize: vertical; backdrop-filter: blur(10px);" onfocus="this.style.borderColor='var(--electric-blue)'; this.style.boxShadow='0 0 20px var(--electric-blue)'" onblur="this.style.borderColor='var(--neon-purple)'; this.style.boxShadow='none'"></textarea>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="cyber-button" style="background: linear-gradient(45deg, var(--neon-purple), var(--electric-blue)); border: none; padding: 15px 40px; border-radius: 25px; color: white; font-family: 'Courier New', monospace; font-size: 1.1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 0 30px var(--electric-blue);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 50px var(--electric-blue)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px var(--electric-blue)'">🚀 DEPLOY TO MATRIX 🚀</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="content-section">
+            <h2 class="section-title">🎬 Secondary Cyberpunk Media Hub</h2>
+            <div style="text-align: center; margin: 60px 0;">
+                <div style="background: var(--glass-standard); backdrop-filter: blur(20px); border: 2px solid var(--electric-blue); border-radius: 20px; padding: 30px; box-shadow: 0 0 50px var(--electric-blue); position: relative;">
+                    <h3 style="color: var(--cyber-green); margin-bottom: 20px;">🎥 Autoplay Video Experience</h3>
+                    <video autoplay muted loop style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 0 30px var(--neon-purple);">
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p style="color: var(--electric-blue); margin-top: 15px; font-size: 0.9rem;">🔄 Continuous loop • 🔇 Auto-muted • ⚡ Performance optimized</p>
+                </div>
+            </div>
+
+            <!-- Image Gallery -->
+            <div style="margin: 60px 0;">
+                <h3 style="color: var(--cyber-green); text-align: center; margin-bottom: 30px;">🖼️ Cyberpunk Asset Gallery</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--neon-purple);">
+                        <img src="1365733-cyberpunk-scifi-neon-artist-artwork-digital-art.jpg" alt="Cyberpunk Cityscape" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--electric-blue);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🏙️ Neo Tokyo Skyline</p>
+                    </div>
+                    <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--cyber-green);">
+                        <img src="pngtree-cyberpunk-game-movie-character-portrait-modeling-png-image_9015365.png" alt="Cyberpunk Character 1" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--cyber-green);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">🤖 Cyber Warrior Alpha</p>
+                    </div>
+                    <div style="background: var(--glass-subtle); border-radius: 15px; padding: 15px; border: 1px solid var(--plasma-pink);">
+                        <img src="pngtree-cyberpunk-movie-game-character-portrait-modeling-png-image_9015364.png" alt="Cyberpunk Character 2" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px var(--plasma-pink);">
+                        <p style="color: var(--electric-blue); text-align: center; margin-top: 10px; font-size: 0.9rem;">👤 Neural Hacker Beta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Navigation click handlers
+        document.querySelectorAll('.nav-pill').forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.target.getAttribute('href').substring(1);
+                scrollToSection(target);
+                
+                // Add active state
+                document.querySelectorAll('.nav-pill').forEach(p => p.style.background = 'var(--glass-subtle)');
+                e.target.style.background = 'var(--glass-intense)';
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Create success animation
+            const button = e.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '🚀 DEPLOYING... 🚀';
+            button.style.background = 'linear-gradient(45deg, var(--cyber-green), var(--electric-blue))';
+            button.style.animation = 'pulse 1s infinite';
+            
+            setTimeout(() => {
+                button.innerHTML = '✅ DEPLOYED TO MATRIX! ✅';
+                button.style.background = 'linear-gradient(45deg, var(--cyber-green), var(--cyber-green))';
+                button.style.animation = 'none';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = 'linear-gradient(45deg, var(--neon-purple), var(--electric-blue))';
+                }, 3000);
+            }, 2000);
+        });
+
+        // File upload drag and drop
+        const fileZone = document.querySelector('.file-upload-zone');
+        const fileInput = document.getElementById('fileInput');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileZone.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileZone.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            fileZone.style.borderColor = 'var(--plasma-pink)';
+            fileZone.style.background = 'var(--glass-prominent)';
+            fileZone.style.boxShadow = '0 0 30px var(--plasma-pink)';
+        }
+
+        function unhighlight(e) {
+            fileZone.style.borderColor = 'var(--electric-blue)';
+            fileZone.style.background = 'var(--glass-subtle)';
+            fileZone.style.boxShadow = 'none';
+        }
+
+        fileZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                fileInput.files = files;
+                const fileNames = Array.from(files).map(f => f.name).join(', ');
+                fileZone.querySelector('p').innerHTML = `📁 Files selected: ${fileNames}`;
+            }
+        }
+
+        // Add cyber typing effect
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effects on load
+        window.addEventListener('load', () => {
+            // Add pulse animation to CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+                
+                @keyframes glow {
+                    0%, 100% { box-shadow: 0 0 20px var(--electric-blue); }
+                    50% { box-shadow: 0 0 40px var(--electric-blue); }
+                }
+                
+                .nav-pill:hover {
+                    animation: glow 2s infinite;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Parallax effect for background video
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-video');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Dynamic theme color adaptation
+        function adaptThemeColor() {
+            const hour = new Date().getHours();
+            const root = document.documentElement;
+            
+            if (hour >= 6 && hour < 12) {
+                // Morning theme - more blue
+                root.style.setProperty('--primary-accent', 'var(--electric-blue)');
+            } else if (hour >= 12 && hour < 18) {
+                // Afternoon theme - more green
+                root.style.setProperty('--primary-accent', 'var(--cyber-green)');
+            } else if (hour >= 18 && hour < 22) {
+                // Evening theme - more purple
+                root.style.setProperty('--primary-accent', 'var(--neon-purple)');
+            } else {
+                // Night theme - more pink
+                root.style.setProperty('--primary-accent', 'var(--plasma-pink)');
+            }
+        }
+
+        // Initialize theme adaptation
+        adaptThemeColor();
+        
+        // Update theme every hour
+        setInterval(adaptThemeColor, 3600000);
+    </script>
+</body>
+</html>
