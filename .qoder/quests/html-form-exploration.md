@@ -1,74 +1,74 @@
-# HTML Form Exploration - Single Page Application Design
+# Exploração de Formulários HTML - Design de Aplicação de Página Única
 
-## Overview
+## Visão Geral
 
-This design document outlines the creation of a comprehensive single-page HTML application that showcases all types of HTML formatting, custom styling, and form elements. The application will serve as an interactive exploration of HTML capabilities with modern glassmorphism and gradient styling approaches.
+Este documento de design delineia a criação de uma aplicação HTML abrangente de página única que demonstra todos os tipos de formatação HTML, estilização personalizada e elementos de formulário. A aplicação servirá como uma exploração interativa das capacidades HTML com abordagens modernas de glassmorfismo e estilização gradiente.
 
-**Project Type**: Frontend Single Page Application  
-**Target Audience**: Developers learning HTML/CSS/JavaScript fundamentals  
-**Deployment**: Single HTML file with embedded CSS and JavaScript
+**Tipo de Projeto**: Aplicação Frontend de Página Única  
+**Público-Alvo**: Desenvolvedores aprendendo fundamentos de HTML/CSS/JavaScript  
+**Implantação**: Arquivo HTML único com CSS e JavaScript incorporados
 
-## Architecture
+## Arquitetura
 
-### Single File Structure
-The application follows a monolithic single-file architecture where all components are contained within a single `index.html` file:
+### Estrutura de Arquivo Único
+A aplicação segue uma arquitetura monolítica de arquivo único onde todos os componentes estão contidos em um único arquivo `index.html`:
 
 ```mermaid
 graph TB
-    A[index.html] --> B[HTML Structure]
-    A --> C[Embedded CSS Styles]
-    A --> D[Embedded JavaScript]
+    A[index.html] --> B[Estrutura HTML]
+    A --> C[Estilos CSS Incorporados]
+    A --> D[JavaScript Incorporado]
     
-    B --> E[Navigation Section]
-    B --> F[Content Sections]
-    B --> G[Form Components]
+    B --> E[Seção de Navegação]
+    B --> F[Seções de Conteúdo]
+    B --> G[Componentes de Formulário]
     
-    F --> H[Links Demo]
-    F --> I[Lists Demo]
-    F --> J[Tables Demo]
-    F --> K[Media Demo]
+    F --> H[Demo de Links]
+    F --> I[Demo de Listas]
+    F --> J[Demo de Tabelas]
+    F --> K[Demo de Mídia]
     
-    C --> L[Glass Morphism Styles]
-    C --> M[Gradient Backgrounds]
-    C --> N[Responsive Layout]
+    C --> L[Estilos Glass Morphism]
+    C --> M[Fundos Gradiente]
+    C --> N[Layout Responsivo]
     
-    D --> O[Form Validation]
-    D --> P[Interactive Elements]
-    D --> Q[Smooth Scrolling]
+    D --> O[Validação de Formulário]
+    D --> P[Elementos Interativos]
+    D --> Q[Rolagem Suave]
 ```
 
-### Visual Design System
+### Sistema de Design Visual
 
-#### Color Palette Strategy
+#### Estratégia de Paleta de Cores
 
-**Primary Cyberpunk Palette**
-| Color Name | Hex Value | RGB Value | Usage Context |
-|------------|-----------|-----------|---------------|
-| Neon Purple | #8a2be2 | rgb(138, 43, 226) | Primary accent, CTAs, focus states |
-| Electric Blue | #00ffff | rgb(0, 255, 255) | Secondary accent, links, highlights |
-| Plasma Pink | #ff1493 | rgb(255, 20, 147) | Error states, warning indicators |
-| Cyber Green | #39ff14 | rgb(57, 255, 20) | Success states, validation feedback |
-| Deep Space | #0a0a0a | rgb(10, 10, 10) | Base background, deep containers |
-| Void Black | #000000 | rgb(0, 0, 0) | Text shadows, depth creation |
+**Paleta Cyberpunk Primária**
+| Nome da Cor | Valor Hex | Valor RGB | Contexto de Uso |
+|-------------|-----------|-----------|------------------|
+| Néon Roxo | #8a2be2 | rgb(138, 43, 226) | Destaque primário, CTAs, estados de foco |
+| Azul Elétrico | #00ffff | rgb(0, 255, 255) | Destaque secundário, links, destaques |
+| Rosa Plasma | #ff1493 | rgb(255, 20, 147) | Estados de erro, indicadores de aviso |
+| Verde Cyber | #39ff14 | rgb(57, 255, 20) | Estados de sucesso, feedback de validação |
+| Espaço Profundo | #0a0a0a | rgb(10, 10, 10) | Fundo base, contêineres profundos |
+| Preto Vazio | #000000 | rgb(0, 0, 0) | Sombras de texto, criação de profundidade |
 
-**Glass Morphism Transparency Levels**
-| Transparency Level | Alpha Value | Application |
-|-------------------|-------------|-------------|
-| Subtle Glass | rgba(255,255,255,0.05) | Background overlays |
-| Standard Glass | rgba(255,255,255,0.1) | Card backgrounds |
-| Prominent Glass | rgba(255,255,255,0.15) | Active elements |
-| Intense Glass | rgba(255,255,255,0.2) | Hover states |
-| Maximum Glass | rgba(255,255,255,0.25) | Focus states |
+**Níveis de Transparência Glass Morphism**
+| Nível de Transparência | Valor Alpha | Aplicação |
+|---------------------------|-------------|---------------|
+| Vidro Sutil | rgba(255,255,255,0.05) | Sobreposições de fundo |
+| Vidro Padrão | rgba(255,255,255,0.1) | Fundos de cartão |
+| Vidro Proeminente | rgba(255,255,255,0.15) | Elementos ativos |
+| Vidro Intenso | rgba(255,255,255,0.2) | Estados de hover |
+| Vidro Máximo | rgba(255,255,255,0.25) | Estados de foco |
 
-**Gradient Collection Library**
-| Gradient Name | CSS Definition | Visual Effect |
-|---------------|----------------|---------------|
-| Cosmic Nebula | linear-gradient(135deg, #667eea 0%, #764ba2 100%) | Background depth |
-| Electric Storm | linear-gradient(45deg, #8a2be2 0%, #00ffff 50%, #ff1493 100%) | Interactive elements |
-| Cyber Matrix | radial-gradient(circle at center, #39ff14 0%, #0a0a0a 70%) | Focus indicators |
-| Plasma Wave | linear-gradient(90deg, #ff1493 0%, #8a2be2 50%, #00ffff 100%) | Progress bars |
-| Deep Space Flow | linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) | Page background |
-| Holographic Shift | conic-gradient(from 0deg, #8a2be2, #00ffff, #39ff14, #ff1493, #8a2be2) | Special effects |
+**Biblioteca de Coleção de Gradientes**
+| Nome do Gradiente | Definição CSS | Efeito Visual |
+|-------------------|------------------|----------------|
+| Nebulosa Cósmica | linear-gradient(135deg, #667eea 0%, #764ba2 100%) | Profundidade de fundo |
+| Tempestade Elétrica | linear-gradient(45deg, #8a2be2 0%, #00ffff 50%, #ff1493 100%) | Elementos interativos |
+| Matrix Cyber | radial-gradient(circle at center, #39ff14 0%, #0a0a0a 70%) | Indicadores de foco |
+| Onda Plasma | linear-gradient(90deg, #ff1493 0%, #8a2be2 50%, #00ffff 100%) | Barras de progresso |
+| Fluxo Espaço Profundo | linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) | Fundo da página |
+| Mudança Holográfica | conic-gradient(from 0deg, #8a2be2, #00ffff, #39ff14, #ff1493, #8a2be2) | Efeitos especiais |
 
 #### Advanced Gradient Design Patterns
 
